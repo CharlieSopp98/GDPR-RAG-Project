@@ -5,6 +5,7 @@ from data_loader import main as create_db
 from langchain.prompts import ChatPromptTemplate
 from langchain_community.llms.ollama import Ollama
 import argparse
+from sys import exit
 
 FAISS_PATH = "FAISS_db"
 
@@ -30,9 +31,8 @@ def load_db():
     if os.path.exists(FAISS_PATH):
         db = FAISS.load_local(FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
     else:
-        print("Need to first create database, now running script to create FAISS database...")
-        create_db()
-        db = FAISS.load_local(FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+        print("Need to first create database, please first run the command to produce this vector store: python data_loader.py")
+        exit()
     return db
 
 def retrieve_query_context(query_text: str):
