@@ -60,7 +60,7 @@ python data_loader.py --rerun
 Then, run the ```query_data.py``` script along with the query, i.e.
 
 ```console
-python data_query.py "What is meant by a person's right to deletion?"
+python query_data.py "What is meant by a person's right to deletion?"
 ```
 
 This will first print the prompt that will be fed into the mistral LLM from Ollama (which will include the contents from the top 5 most relevent documents to the query), before printing the response from the LLM.
